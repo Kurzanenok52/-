@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задачи JavaScript для начинающих</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+        .задача {
+            background: #f0f0f0;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        input, button {
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Задача 1: Калькулятор -->
+    <div class="задача">
+        <h3>1. Калькулятор</h3>
+        <input type="number" id="первоеЧисло" placeholder="Первое число">
+        <select id="действие">
+            <option value="+">Сложить (+)</option>
+            <option value="-">Вычесть (-)</option>
+            <option value="*">Умножить (*)</option>
+            <option value="/">Разделить (/)</option>
+        </select>
+        <input type="number" id="второеЧисло" placeholder="Второе число">
+        <button onclick="посчитать()">Посчитать</button>
+        <p id="результатКалькулятора"></p>
+    </div>
+
+    <!-- Задача 2: Проверка на палиндром -->
+    <div class="задача">
+        <h3>2. Проверка фамилии на палиндром</h3>
+        <input type="text" id="фамилия" placeholder="Введите фамилию">
+        <button onclick="проверитьПалиндром()">Проверить</button>
+        <p id="результатПалиндрома"></p>
+    </div>
+
+    <!-- Задача 3: Среднее значение -->
+    <div class="задача">
+        <h3>3. Среднее значение чисел</h3>
+        <p id="среднееЗначение"></p>
+    </div>
+
+    <!-- Задача 4: Дни до Нового года -->
+    <div class="задача">
+        <h3>4. Дни до Нового года</h3>
+        <p id="дниДоНовогоГода"></p>
+    </div>
+
+    <!-- Задача 5: Работа с массивом -->
+    <div class="задача">
+        <h3>5. Работа с числами</h3>
+        <p id="работаСМассивом"></p>
+    </div>
+
+    <!-- Задача 6: Поиск почты -->
+    <div class="задача">
+        <h3>6. Поиск почты</h3>
+        <input type="text" id="поискПочты" placeholder="Введите текст для поиска">
+        <div id="списокПочты"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
