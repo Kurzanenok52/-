@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задания JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .task {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        input, button {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задания JavaScript</h1>
+    
+    <div class="task">
+        <h2>1. Загадки</h2>
+        <div id="game"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="task">
+        <h2>2. Счёт от 1 до 10</h2>
+        <button onclick="считатьДоДесяти()">Запустить счёт</button>
+        <div id="counting-result"></div>
+    </div>
+
+    <div class="task">
+        <h2>3. Программа для застолий</h2>
+        <button onclick="начатьЗастолье()">Начать застолье</button>
+        <div id="party-result"></div>
+    </div>
+
+    <div class="task">
+        <h2>4. Вычисление факториала</h2>
+        <input type="number" id="factorial-input" placeholder="Введите номер">
+        <button onclick="вычислитьФакториал()">Вычислить</button>
+        <div id="factorial-result"></div>
+    </div>
+
+    <div class="task">
+        <h2>5. Проверка фамилии на палиндром</h2>
+        <input type="text" id="palindrome-input" placeholder="Введите фамилию">
+        <button onclick="проверитьПалиндром()">Проверить</button>
+        <div id="palindrome-result"></div>
+    </div>
+
+    <div class="task">
+        <h2>6. Простые числа</h2>
+        <input type="number" id="prime-input" placeholder="Введите номер">
+        <button onclick="найтиПростыеЧисла()">Найти</button>
+        <div id="prime-result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
