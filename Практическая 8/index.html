@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простая форма входа</title>
+    <style>
+        /* Базовые стили для всей страницы */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e6e6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Стили для контейнера формы */
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Стили для заголовка */
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Стили для группы полей */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Стили для меток */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* Стили для полей ввода */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Стили для чекбокса */
+        .checkbox-group {
+            margin: 15px 0;
+        }
+
+        .checkbox-group label {
+            display: inline;
+            margin-left: 5px;
+        }
+
+        /* Стили для кнопки */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Стили для блока с ошибкой */
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Вход в систему</h2>
+        <form id="loginForm">
+            <!-- Поле для имени пользователя -->
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required>
+                <div id="usernameError" class="error">Введите имя пользователя</div>
+            </div>
+            
+            <!-- Поле для пароля -->
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                <div id="passwordError" class="error">Пароль должен быть не менее 6 символов</div>
+            </div>
+
+            <!-- Чекбокс "Запомнить меня" -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Запомнить меня</label>
+            </div>
+
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+
+    <script>
+        // Получаем элементы формы
+        const loginForm = document.getElementById('loginForm');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const rememberMe = document.getElementById('rememberMe');
+        const usernameError = document.getElementById('usernameError');
+        const passwordError = document.getElementById('passwordError');
+
+        // Проверяем есть ли сохраненные данные
+        window.onload = function() {
+            const savedUsername = localStorage.getItem('username');
+            const savedPassword = localStorage.getItem('password');
+            
+            if (savedUsername && savedPassword) {
+                username.value = savedUsername;
+                password.value = savedPassword;
+                rememberMe.checked = true;
+            }
+        }
+
+        // Обработка отправки формы
+        loginForm.onsubmit = function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            // Проверка имени пользователя
+            if (username.value.length === 0) {
+                usernameError.style.display = 'block';
+                isValid = false;
+            } else {
+                usernameError.style.display = 'none';
+            }
+
+            // Проверка пароля
+            if (password.value.length < 6) {
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+
+            // Если все данные верны
+            if (isValid) {
+                // Сохраняем данные, если выбрано "Запомнить меня"
+                if (rememberMe.checked) {
+                    localStorage.setItem('username', username.value);
+                    localStorage.setItem('password', password.value);
+                } else {
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                }
+                
+                alert('Вход выполнен успешно!');
+            }
+        }
+    </script>
+</body>
+</html>
